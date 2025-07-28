@@ -3,14 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sophie Marchant - Illustratrice</title>
+    <title>Sophie Marchandise - Illustratrice</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <!-- Navigation -->
     <nav class="navbar">
       <div class="nav-container">
-        <a href="#" class="logo">Sophie Marchant</a>
+        <a href="#" class="logo">Sophie Marchandise</a>
         <ul class="nav-links">
           <li><a href="#about">À propos</a></li>
           <li><a href="#portfolio">Portfolio</a></li>
@@ -28,8 +34,11 @@
     <!-- Hero Section -->
     <section class="hero">
       <div class="hero-content">
-        <h1>Sophie Marchant</h1>
-        <p>Illustratrice créative passionnée</p>
+        <h1>Sophie Marchandise</h1>
+        <p>
+          Bonjour, je suis Sophie. J'illustre et conceptualise vos idées et vous
+          accompagne dans la création de vos univers ludiques !
+        </p>
         <a href="#portfolio" class="cta-button">Découvrir mon travail</a>
       </div>
     </section>
@@ -44,20 +53,22 @@
           <div class="about-text">
             <h2>À propos de moi</h2>
             <p>
-              Passionnée par l'art depuis mon plus jeune âge, je transforme vos
-              idées en illustrations uniques et captivantes. Mon style se
-              caractérise par des couleurs vibrantes et des compositions
-              originales.
+              Originaire des Hauts-de-France, je suis une passionnée de l'image
+              et de la narration visuelle. Diplômée d'un Master en Audiovisuel,
+              j'ai passé cinq années à façonner des identités visuelles et des
+              expériences immersives en direction artistique, dont 2,5 ans en
+              Inde, où j'ai enrichi ma créativité au contact de nouvelles
+              cultures.
             </p>
             <p>
-              Avec plusieurs années d'expérience dans l'illustration, je
-              collabore avec des clients variés pour donner vie à leurs projets
-              créatifs, qu'il s'agisse de livres, de supports marketing ou
-              d'œuvres personnalisées.
+              Le dessin et l'illustration sont au cœur de mon expression
+              artistique. J'aime explorer et inventer de nouveaux mondes,
+              nourrie par mon amour du jeu sous toutes ses formes : jeux de
+              rôle, jeux de société et jeux vidéo.
             </p>
             <p>
-              Mon approche artistique mélange tradition et modernité, créant des
-              œuvres qui racontent des histoires et éveillent les émotions.
+              Curieuse et imaginative, je mets mon expertise au service de
+              projets où l'originalité et l'émotion prennent vie.
             </p>
           </div>
         </div>
@@ -69,15 +80,76 @@
       <div class="container">
         <h2 class="section-title">Mon Portfolio</h2>
         <div class="portfolio-grid fade-in">
-          <div class="portfolio-item"></div>
-          <div class="portfolio-item"></div>
-          <div class="portfolio-item"></div>
-          <div class="portfolio-item"></div>
-          <div class="portfolio-item"></div>
-          <div class="portfolio-item"></div>
+          <div class="portfolio-item" onclick="openModal('modal1')"></div>
+          <div class="portfolio-item" onclick="openModal('modal2')"></div>
+          <div class="portfolio-item" onclick="openModal('modal3')"></div>
+          <div class="portfolio-item" onclick="openModal('modal4')"></div>
+          <div class="portfolio-item" onclick="openModal('modal5')"></div>
+          <div class="portfolio-item" onclick="openModal('modal6')"></div>
         </div>
       </div>
     </section>
+
+    <!-- Modals pour les images -->
+    <div id="modal1" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('modal1')">&times;</span>
+        <p>
+          Ici s'affichera l'illustration 1 en taille réelle<br />Format original
+          préservé
+        </p>
+      </div>
+    </div>
+
+    <div id="modal2" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('modal2')">&times;</span>
+        <p>
+          Ici s'affichera l'illustration 2 en taille réelle<br />Format original
+          préservé
+        </p>
+      </div>
+    </div>
+
+    <div id="modal3" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('modal3')">&times;</span>
+        <p>
+          Ici s'affichera l'illustration 3 en taille réelle<br />Format original
+          préservé
+        </p>
+      </div>
+    </div>
+
+    <div id="modal4" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('modal4')">&times;</span>
+        <p>
+          Ici s'affichera l'illustration 4 en taille réelle<br />Format original
+          préservé
+        </p>
+      </div>
+    </div>
+
+    <div id="modal5" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('modal5')">&times;</span>
+        <p>
+          Ici s'affichera l'illustration 5 en taille réelle<br />Format original
+          préservé
+        </p>
+      </div>
+    </div>
+
+    <div id="modal6" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('modal6')">&times;</span>
+        <p>
+          Ici s'affichera l'illustration 6 en taille réelle<br />Format original
+          préservé
+        </p>
+      </div>
+    </div>
 
     <!-- Services Section -->
     <section id="services" class="services">
@@ -159,6 +231,6 @@
       </div>
     </section>
 
-    <script src="/script.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>
