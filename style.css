@@ -9,12 +9,13 @@ body {
   line-height: 1.6;
   color: #333;
   overflow-x: hidden;
-  /* IMAGE DE FOND GLOBALE - UNE SEULE FOIS */
+  /* IMAGE DE FOND GLOBALE */
   background-image: url("./img/1753966023428.png");
-  background-size: 100% auto; /* Largeur 100%, hauteur auto pour conserver les proportions */
+  background-size: cover;
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-attachment: scroll;
   background-position: center top;
+  min-height: 100vh;
 }
 
 /* Navigation */
@@ -62,10 +63,10 @@ body {
   color: #d99f6c;
 }
 
-/* Hero Section - Partie haute de l'image (montagnes/coucher de soleil) */
+/* Hero Section - Transparent pour voir le fond */
 .hero {
   height: 100vh;
-  background: transparent; /* Pas de background, on utilise celui du body */
+  background: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -157,7 +158,7 @@ body {
   }
 }
 
-/* About Section - Partie lac/ruines de l'image */
+/* About Section - Overlay plus transparent pour voir le fond */
 .about {
   min-height: 80vh;
   padding: 5rem 0;
@@ -172,9 +173,9 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(248, 249, 250, 0.85);
+  background: rgba(248, 249, 250, 0.7); /* MOINS OPAQUE */
   z-index: 1;
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(1px);
 }
 
 .container {
@@ -224,11 +225,11 @@ body {
 .about-text p {
   font-size: 1.1rem;
   margin-bottom: 1.5rem;
-  color: #666;
-  font-weight: 400;
+  color: #333; /* PLUS FONCÉ pour contraster */
+  font-weight: 500;
 }
 
-/* Portfolio Section - Partie cavernes principales */
+/* Portfolio Section - Overlay moins opaque */
 .portfolio {
   min-height: 90vh;
   padding: 5rem 0;
@@ -244,9 +245,9 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(74, 63, 115, 0.8);
+  background: rgba(74, 63, 115, 0.6); /* MOINS OPAQUE */
   z-index: 1;
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(1px);
 }
 
 .portfolio .container {
@@ -265,8 +266,8 @@ body {
 
 .portfolio-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 3rem;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
   margin-top: 3rem;
   justify-items: center;
 }
@@ -279,8 +280,9 @@ body {
   transition: transform 0.3s ease;
   cursor: pointer;
   position: relative;
-  height: 400px;
-  width: 400px;
+  height: 350px;
+  width: 100%;
+  max-width: 350px;
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
@@ -301,33 +303,33 @@ body {
   align-items: center;
   justify-content: center;
   color: white;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   text-align: center;
   font-weight: 500;
 }
 
 .portfolio-item:nth-child(1)::before {
-  content: "Illustration 1" "\A""400x400px" "\A""(Cliquez pour agrandir)";
+  content: "Illustration 1" "\A""(Cliquez pour agrandir)";
   white-space: pre-line;
 }
 .portfolio-item:nth-child(2)::before {
-  content: "Illustration 2" "\A""400x400px" "\A""(Cliquez pour agrandir)";
+  content: "Illustration 2" "\A""(Cliquez pour agrandir)";
   white-space: pre-line;
 }
 .portfolio-item:nth-child(3)::before {
-  content: "Illustration 3" "\A""400x400px" "\A""(Cliquez pour agrandir)";
+  content: "Illustration 3" "\A""(Cliquez pour agrandir)";
   white-space: pre-line;
 }
 .portfolio-item:nth-child(4)::before {
-  content: "Illustration 4" "\A""400x400px" "\A""(Cliquez pour agrandir)";
+  content: "Illustration 4" "\A""(Cliquez pour agrandir)";
   white-space: pre-line;
 }
 .portfolio-item:nth-child(5)::before {
-  content: "Illustration 5" "\A""400x400px" "\A""(Cliquez pour agrandir)";
+  content: "Illustration 5" "\A""(Cliquez pour agrandir)";
   white-space: pre-line;
 }
 .portfolio-item:nth-child(6)::before {
-  content: "Illustration 6" "\A""400x400px" "\A""(Cliquez pour agrandir)";
+  content: "Illustration 6" "\A""(Cliquez pour agrandir)";
   white-space: pre-line;
 }
 
@@ -383,7 +385,7 @@ body {
   color: #4a3f73;
 }
 
-/* Services Section - Partie cavernes intermédiaires */
+/* Services Section - Overlay plus transparent */
 .services {
   min-height: 70vh;
   padding: 5rem 0;
@@ -398,9 +400,9 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(248, 249, 250, 0.9);
+  background: rgba(248, 249, 250, 0.75); /* MOINS OPAQUE */
   z-index: 1;
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(1px);
 }
 
 .services h2 {
@@ -415,7 +417,7 @@ body {
 
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
   margin-top: 3rem;
 }
@@ -455,11 +457,11 @@ body {
 }
 
 .service-card p {
-  color: #666;
+  color: #555;
   font-weight: 400;
 }
 
-/* Contact Section - Partie rivière souterraine/profondeurs */
+/* Contact Section - Overlay moins opaque */
 .contact {
   min-height: 60vh;
   padding: 5rem 0;
@@ -476,9 +478,9 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(74, 63, 115, 0.85);
+  background: rgba(74, 63, 115, 0.7); /* MOINS OPAQUE */
   z-index: 1;
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(1px);
 }
 
 .contact .container {
@@ -549,16 +551,31 @@ body {
   transform: translateY(0);
 }
 
-/* Responsive Design */
+/* RESPONSIVE DESIGN AMÉLIORÉ */
 @media (max-width: 768px) {
-  /* Sur mobile, on passe en background-attachment: scroll pour éviter les bugs */
   body {
     background-attachment: scroll;
     background-size: cover;
+    background-position: center center;
+  }
+
+  .nav-container {
+    padding: 0 1rem;
   }
 
   .nav-links {
     display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(74, 63, 115, 0.98);
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .nav-links.active {
+    display: flex;
   }
 
   .mobile-menu {
@@ -575,29 +592,104 @@ body {
 
   .hero-content {
     padding: 1.5rem;
+    margin: 0 1rem;
+  }
+
+  .container {
+    padding: 0 1rem;
   }
 
   .about-content {
     grid-template-columns: 1fr;
     text-align: center;
+    gap: 2rem;
+  }
+
+  .profile-img {
+    max-width: 250px;
+    height: 250px;
+  }
+
+  .about-text h2 {
+    font-size: 2rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .portfolio-item {
+    height: 250px;
+    max-width: 100%;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .service-card {
+    padding: 1.5rem;
   }
 
   .contact-buttons {
     flex-direction: column;
     align-items: center;
+    gap: 1rem;
   }
 
-  .portfolio-grid {
-    grid-template-columns: 1fr;
+  .contact-btn {
+    width: 80%;
+    justify-content: center;
   }
 
-  .portfolio-item {
-    width: 100%;
-    max-width: 400px;
+  /* Ajustements spécifiques pour mobile */
+  .about::after,
+  .services::after {
+    background: rgba(
+      248,
+      249,
+      250,
+      0.85
+    ); /* Plus opaque sur mobile pour la lisibilité */
   }
 
-  .services-grid {
-    grid-template-columns: 1fr;
+  .portfolio::after,
+  .contact::after {
+    background: rgba(74, 63, 115, 0.8); /* Plus opaque sur mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .hero-content {
+    padding: 1rem;
+  }
+
+  .about-text h2 {
+    font-size: 1.8rem;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .service-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
   }
 }
 
