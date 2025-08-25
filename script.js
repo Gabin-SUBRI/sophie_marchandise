@@ -75,3 +75,114 @@ document.addEventListener("keydown", function (event) {
     }
   }
 });
+
+// Code à ajouter à votre script.js existant
+
+// Effet parallaxe pour les sections avec background fixe
+function initParallax() {
+  const parallaxSections = document.querySelectorAll(".hero, .portfolio");
+
+  window.addEventListener("scroll", () => {
+    const scrolled = window.pageYOffset;
+    const rate = scrolled * -0.5; // Vitesse du parallaxe
+
+    parallaxSections.forEach((section, index) => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.offsetHeight;
+      const windowHeight = window.innerHeight;
+
+      // Vérifier si la section est visible
+      if (
+        scrolled + windowHeight > sectionTop &&
+        scrolled < sectionTop + sectionHeight
+      ) {
+        section.style.backgroundPosition = `center ${rate}px`;
+      }
+    });
+  });
+}
+
+// Animation d'apparition progressive des sections
+function initSectionReveal() {
+  const sections = document.querySelectorAll("section");
+
+  const revealOptions = {
+    threshold: 0.15,
+    rootMargin: "0px 0px -100px 0px",
+  };
+
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("section-reveal", "visible");
+      }
+    });
+  }, revealOptions);
+
+  sections.forEach((section) => {
+    section.classList.add("section-reveal");
+    revealObserver.observe(section);
+  });
+}
+
+// Transition fluide entre sections avec différents backgrounds
+function initSectionTransitions() {
+  const sections = document.querySelectorAll("section[id]");
+
+  const transitionObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // Ajouter une classe pour identifier la section active
+          document.body.setAttribute("data-current-section", entry.target.id);
+        }
+      });
+    },
+    {
+      threshold: 0.5,
+    }
+  );
+
+  sections.forEach((section) => {
+    transitionObserver.observe(section);
+  });
+}
+
+// Optimisation des performances pour les effets de scroll
+let ticking = false;
+
+function requestTick() {
+  if (!ticking) {
+    requestAnimationFrame(() => {
+      ticking = false;
+    });
+    ticking = true;
+  }
+}
+
+// Initialiser tous les effets
+document.addEventListener("DOMContentLoaded", () => {
+  // Vos fonctions existantes...
+
+  // Nouvelles fonctions pour les backgrounds
+  initParallax();
+  initSectionReveal();
+  initSectionTransitions();
+});
+
+// Gestion responsive du parallaxe
+function handleResize() {
+  const isMobile = window.innerWidth <= 768;
+  const parallaxSections = document.querySelectorAll(".hero, .portfolio");
+
+  parallaxSections.forEach((section) => {
+    if (isMobile) {
+      section.style.backgroundAttachment = "scroll";
+    } else {
+      section.style.backgroundAttachment = "fixed";
+    }
+  });
+}
+
+window.addEventListener("resize", handleResize);
+handleResize(); // Appel initial

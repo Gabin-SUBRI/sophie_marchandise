@@ -9,6 +9,12 @@ body {
   line-height: 1.6;
   color: #333;
   overflow-x: hidden;
+  /* IMAGE DE FOND GLOBALE - UNE SEULE FOIS */
+  background-image: url("./img/1753966023428.png");
+  background-size: 100% auto; /* Largeur 100%, hauteur auto pour conserver les proportions */
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center top;
 }
 
 /* Navigation */
@@ -56,10 +62,10 @@ body {
   color: #d99f6c;
 }
 
-/* Hero Section */
+/* Hero Section - Partie haute de l'image (montagnes/coucher de soleil) */
 .hero {
   height: 100vh;
-  background: linear-gradient(135deg, #4a3f73 0%, #b08ca8 100%);
+  background: transparent; /* Pas de background, on utilise celui du body */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -96,6 +102,11 @@ body {
   color: white;
   z-index: 2;
   position: relative;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 2rem;
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .hero h1 {
@@ -104,6 +115,7 @@ body {
   opacity: 0;
   animation: slideInUp 1s ease 0.5s forwards;
   font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 .hero p {
@@ -112,6 +124,7 @@ body {
   opacity: 0;
   animation: slideInUp 1s ease 0.7s forwards;
   font-weight: 400;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 
 .cta-button {
@@ -144,22 +157,24 @@ body {
   }
 }
 
-/* About Section */
+/* About Section - Partie lac/ruines de l'image */
 .about {
+  min-height: 80vh;
   padding: 5rem 0;
-  background: #f8f9fa;
+  background: transparent;
   position: relative;
 }
 
-.about::before {
+.about::after {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  height: 100px;
-  background: linear-gradient(135deg, #67a60a 0%, #b08ca8 100%);
-  clip-path: polygon(0 0, 100% 0, 100% 70%, 0 100%);
+  bottom: 0;
+  background: rgba(248, 249, 250, 0.85);
+  z-index: 1;
+  backdrop-filter: blur(2px);
 }
 
 .container {
@@ -174,6 +189,8 @@ body {
   gap: 4rem;
   align-items: center;
   margin-top: 3rem;
+  position: relative;
+  z-index: 2;
 }
 
 .about-image {
@@ -187,7 +204,7 @@ body {
   border-radius: 50%;
   object-fit: cover;
   border: 5px solid #d99f6c;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
   background: linear-gradient(135deg, #b08ca8, #d99f6c);
   display: flex;
   align-items: center;
@@ -211,11 +228,30 @@ body {
   font-weight: 400;
 }
 
-/* Portfolio Section */
+/* Portfolio Section - Partie cavernes principales */
 .portfolio {
+  min-height: 90vh;
   padding: 5rem 0;
-  background: linear-gradient(135deg, #4a3f73 0%, #b08ca8 100%);
+  background: transparent;
   color: white;
+  position: relative;
+}
+
+.portfolio::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(74, 63, 115, 0.8);
+  z-index: 1;
+  backdrop-filter: blur(2px);
+}
+
+.portfolio .container {
+  position: relative;
+  z-index: 2;
 }
 
 .section-title {
@@ -224,6 +260,7 @@ body {
   margin-bottom: 3rem;
   color: #d99f6c;
   font-weight: 600;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 .portfolio-grid {
@@ -235,15 +272,17 @@ body {
 }
 
 .portfolio-item {
-  background: white;
+  background: rgba(255, 255, 255, 0.9);
   border-radius: 15px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease;
   cursor: pointer;
   position: relative;
   height: 400px;
   width: 400px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .portfolio-item:hover {
@@ -344,27 +383,34 @@ body {
   color: #4a3f73;
 }
 
-/* Services Section */
+/* Services Section - Partie cavernes intermédiaires */
 .services {
+  min-height: 70vh;
   padding: 5rem 0;
-  background: #f8f9fa;
+  background: transparent;
   position: relative;
 }
 
-.services::before {
+.services::after {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  height: 100px;
-  background: linear-gradient(135deg, #d9765f 0%, #d99f6c 100%);
-  clip-path: polygon(0 0, 100% 0, 100% 70%, 0 100%);
+  bottom: 0;
+  background: rgba(248, 249, 250, 0.9);
+  z-index: 1;
+  backdrop-filter: blur(2px);
 }
 
 .services h2 {
   color: #4a3f73;
   margin-top: 3rem;
+}
+
+.services .container {
+  position: relative;
+  z-index: 2;
 }
 
 .services-grid {
@@ -375,12 +421,14 @@ body {
 }
 
 .service-card {
-  background: white;
+  background: rgba(255, 255, 255, 0.95);
   padding: 2rem;
   border-radius: 15px;
   text-align: center;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .service-card:hover {
@@ -411,17 +459,41 @@ body {
   font-weight: 400;
 }
 
-/* Contact Section */
+/* Contact Section - Partie rivière souterraine/profondeurs */
 .contact {
+  min-height: 60vh;
   padding: 5rem 0;
-  background: linear-gradient(135deg, #4a3f73 0%, #67a60a 100%);
+  background: transparent;
   color: white;
   text-align: center;
+  position: relative;
+}
+
+.contact::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(74, 63, 115, 0.85);
+  z-index: 1;
+  backdrop-filter: blur(2px);
+}
+
+.contact .container {
+  position: relative;
+  z-index: 2;
 }
 
 .contact h2 {
   color: #d99f6c;
   margin-bottom: 2rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.contact p {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 
 .contact-buttons {
@@ -465,8 +537,26 @@ body {
   transition: 0.3s;
 }
 
+/* Animation d'entrée progressive des sections */
+.section-reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease-out;
+}
+
+.section-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
+  /* Sur mobile, on passe en background-attachment: scroll pour éviter les bugs */
+  body {
+    background-attachment: scroll;
+    background-size: cover;
+  }
+
   .nav-links {
     display: none;
   }
@@ -481,6 +571,10 @@ body {
 
   .hero p {
     font-size: 1.2rem;
+  }
+
+  .hero-content {
+    padding: 1.5rem;
   }
 
   .about-content {
